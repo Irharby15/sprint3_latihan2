@@ -1,4 +1,17 @@
-var kodeUnix = [2, 78, 42, 40, 36, 2, 8, 96, 66, 20, 91, 85, 41, 69, 38, 77, 97, 60, 15, 57]
-
-var hasilnilai = kodeUnix.reduce((a, b) => (a + b) / kodeUnix.length)
-console.log(hasilnilai)
+const ambil_data = () => {
+    fetch("https://api.nuget.org/v3/index.json")
+        .then((data) => data.json())
+        .then((data) => {
+            console.log(data);
+            var res = data;
+            console.log(
+                res.map((value, index) => {
+                    console.log(
+                        `${index + 1}`
+                    );
+                })
+            );
+        })
+        .catch((err) => console.log(err));
+};
+ambil_data()
